@@ -38,8 +38,8 @@ To get started, ensure you have the following:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/biplovgautam/djangosummarizer.git
-   cd djangosummarizer
+   git clone https://github.com/biplovgautam/summarizer.git
+   cd summarizer
    ```
 
 2. **Set Up Virtual Environment**:
