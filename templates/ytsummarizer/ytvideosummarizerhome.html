@@ -1,0 +1,19 @@
+{% extends "homebase/base.html" %}
+
+{% block title %}yt video summarizer{% endblock %}
+
+{% block body %}
+    <h1>Welcome to yt video summarizer BG Summarizer</h1>
+    <p>Enter the YouTube URL below to get the transcription of the video.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    {% if text %}
+        <h2>Transcribed Text:</h2>
+        <p>{{ text }}</p>
+    {% endif %}
+{% endblock %}

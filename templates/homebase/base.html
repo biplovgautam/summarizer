@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} | BG_Summarizer</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/ytvideosummarizer/">yt video summarizer</a></li>
+            <li><a href="/textsummarizer/">text summarizer</a></li>
+        </ul>
+    </header>
+    <div class="bodycontainer">
+        {% block body %}{% endblock %}
+    </div>
+    
+</body>
+</html>
