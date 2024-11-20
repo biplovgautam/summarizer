@@ -1,8 +1,7 @@
 
 # DjangoSummarizer
 
-Welcome to **DjangoSummarizer**! This project is designed to make lengthy YouTube videos more digestible. By leveraging AI, it extracts the audio, transcribes it into text, and (in the future) will summarize the transcription into concise points. Currently, the transcription feature is fully functional.
-
+Welcome to **DjangoSummarizer**! This project is designed to make lengthy YouTube videos more digestible by transcribing audio into text and summarizing it. The transcription feature is fully functional, and future improvements will enhance the summarization capabilities.
 
 ## Features
 
@@ -11,8 +10,8 @@ Welcome to **DjangoSummarizer**! This project is designed to make lengthy YouTub
 - **Summarization**: Automatically generate concise summaries from transcriptions.
 
 ### Planned Features
-- **YT video card**: Automatically generates and update the card having title and video of that youtube url.
-- **Enhanced UI**: A smoother, more intuitive interface for users.
+- **YouTube Video Card**: Automatically generates a card with the title and video of the provided YouTube URL.
+- **Enhanced UI**: A smoother, more intuitive user interface.
 - **API Integration**: Access transcription and summarization services programmatically.
 
 ---
@@ -28,15 +27,19 @@ Welcome to **DjangoSummarizer**! This project is designed to make lengthy YouTub
 
 ## Prerequisites
 
-To get started, ensure you have the following:
+Ensure you have the following installed:
+
 - Python 3.8+
 - Django 4.0+
 - `yt-dlp` (to download video/audio)
-- Whisper (install via `pip install openai-whisper`)
+- Whisper (`pip install openai-whisper`)
+- FFmpeg (for audio/video processing)
 
 ---
 
 ## Installation
+
+Follow the steps below to get the app up and running on your local machine:
 
 1. **Clone the Repository**:
    ```bash
@@ -55,86 +58,86 @@ To get started, ensure you have the following:
    pip install -r requirements.txt
    ```
 
-4. **Run Migrations**:
+4. **Configure FFmpeg**: Ensure FFmpeg is installed and added to your system's PATH.
+
+5. **Apply Migrations**:
    ```bash
    python manage.py migrate
    ```
 
-5. **Start the Server**:
+6. **Run the Development Server**:
    ```bash
    python manage.py runserver
    ```
 
----
-
-## How It Works
-
-1. Go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in your browser.
-2. Paste a YouTube video URL into the input box.
-3. Click **Submit**, and let the app transcribe the audio.
-4. View the transcription results on the output page.
+7. **Access the App**: Open [http://127.0.0.1:8000](http://127.0.0.1:8000) in your browser.
 
 ---
 
-## Project Structure
+## Usage
+
+1. Paste the URL of a YouTube video into the input box.
+2. Click "Submit" to transcribe and summarize the audio.
+3. View the transcription and download the summary if needed.
+
+---
+
+## Directory Structure
 
 ```
-djangosummarizer/
+summarizer/
 ├── summarizer/        # Core project folder
-├── templates/         # HTML files
-├── ytvideosummarizer/ # Handles YouTube video processing
-├── media/             # Temporary file storage
-├── manage.py          # Django management script
-├── requirements.txt   # Required libraries
-└── README.md          # This file!
+├── templates/         # HTML templates
+├── static/            # Static files (CSS, JS, images)
+├── media/             # Temporary storage for audio files
+├── requirements.txt   # Dependencies
+└── README.md          # Project documentation
 ```
 
 ---
 
-## What’s Coming Next?
+## Future Enhancements
 
-- **User Profiles**: Save and revisit previous transcriptions and summaries.
-- **Cloud Integration**: Store processed results for better scalability.
-- **Frontend Enhancements**: Transition to React for a modern, dynamic user experience.
+- **User Profiles**: Save and manage your transcriptions and summaries.
+- **API Service**: Provide transcription and summarization capabilities via API.
+- **Mobile App**: A dedicated app for easier accessibility.
 
 ---
 
 ## Contributing
 
-Want to help make DjangoSummarizer even better? Here’s how:
+Contributions are welcome! Here's how you can help:
 
-1. Fork the repo.
-2. Create a feature branch:
+1. Fork the repository.
+2. Create a new branch:
    ```bash
    git checkout -b feature-name
    ```
-3. Make your changes and commit:
+3. Commit your changes:
    ```bash
-   git commit -m "Describe your changes"
+   git commit -m "Add a brief description of the feature"
    ```
-4. Push your branch:
+4. Push the branch:
    ```bash
    git push origin feature-name
    ```
-5. Open a pull request!
+5. Open a pull request.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. Check out the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
 ---
 
-## Special Thanks
+## Acknowledgements
 
-- **Django** for the solid web framework.
-- **yt-dlp** for making video and audio processing easy.
-- **Whisper** for its groundbreaking transcription capabilities.
-- **BERT** for its powerful capabilities in text summarization, making the process more efficient.
+- **Django** for a robust backend framework.
+- **yt-dlp** for seamless YouTube audio downloads.
+- **Whisper** for state-of-the-art transcription capabilities.
+- **Hugging Face Transformers** for powerful summarization models.
 
 ---
 
-## Let’s Make Videos Easier to Understand Together!
-
-This version emphasizes the use of Whisper for transcription and provides a friendly, approachable tone for readers.
+## Let’s make long videos easier to digest, together! 🎉
