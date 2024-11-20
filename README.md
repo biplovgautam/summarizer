@@ -93,7 +93,6 @@ djangosummarizer/
 
 ## What’s Coming Next?
 
-- **Summarization Features**: Using NLP models like Hugging Face Transformers.
 - **User Profiles**: Save and revisit previous transcriptions and summaries.
 - **Cloud Integration**: Store processed results for better scalability.
 - **Frontend Enhancements**: Transition to React for a modern, dynamic user experience.
@@ -132,6 +131,7 @@ This project is licensed under the MIT License. Check out the [LICENSE](LICENSE)
 - **Django** for the solid web framework.
 - **yt-dlp** for making video and audio processing easy.
 - **Whisper** for its groundbreaking transcription capabilities.
+- **BERT** for its powerful capabilities in text summarization, making the process more efficient.
 
 ---
 

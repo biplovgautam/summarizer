@@ -1,7 +1,10 @@
 # views.py
 from django.shortcuts import render
 from .forms import VideoURLForm
-from .utils import download_audio, audio_to_text, delete_audio
+from .utils import download_audio, audio_to_text, get_video_details
+from django.http import JsonResponse
+
+
 
 def ytvideosummarizerhome(request):
     if request.method == 'POST':
@@ -16,3 +19,14 @@ def ytvideosummarizerhome(request):
     else:
         form = VideoURLForm()
     return render(request, 'ytsummarizer/ytvideosummarizerhome.html', {'form': form})
+
+def get_video_details_ajax(request):
+    if request.method == 'GET':
+        url = request.GET.get('url', '')
+        if url:
+            try:
+                title, thumbnail_url = get_video_details(url)
+                return JsonResponse({'title': title, 'thumbnail_url': thumbnail_url})
+            except Exception as e:
+                return JsonResponse({'error': str(e)})
+    return JsonResponse({'error': 'Invalid request'})

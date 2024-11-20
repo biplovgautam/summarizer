@@ -4,7 +4,8 @@ import os
 from django.conf import settings
 import uuid
 from transformers import pipeline
-
+import requests
+from bs4 import BeautifulSoup
 
 
 # Initialize Whisper model
@@ -52,25 +53,9 @@ def audio_to_text(audio_file_path):
     transcribed_text = result['text']  # Get the text field
     # generate the summary from it
     print("transcription completed sumarizing it!!!")
-    # Split the text into smaller chunks if it's too long for the model
-    chunk_size = 1024  # You can adjust this based on the model's token limit
-    chunks = [transcribed_text[i:i+chunk_size] for i in range(0, len(transcribed_text), chunk_size)]
+    text = ttsummarizer(transcribed_text)
+    return text
     
-    summaries = []
-    try:
-        for chunk in chunks:
-            summary = summarizer(chunk)  # Summarize each chunk
-            summaries.append(summary[0]['summary_text'])  # Append the summary for each chunk
-        # Combine the summaries
-        final_summary = ' '.join(summaries)
-        text = final_summary
-        print("Transcription complete:")
-        print(text)
-        return text
-    except Exception as e:
-        print(f"Error while generating summary: {e}")
-        return e
-
 
 def delete_audio(audio_file_path):
     try:
@@ -78,3 +63,48 @@ def delete_audio(audio_file_path):
         print(f"Deleted audio file: {audio_file_path}")
     except Exception as e:
         print(f"Error deleting audio file: {e}")
+
+
+def ttsummarizer(input_text):
+    chunk_size = 1024  # You can adjust this based on the model's token limit
+    chunks = [input_text[i:i+chunk_size] for i in range(0, len(input_text), chunk_size)]
+    summaries = []
+    try:
+        for chunk in chunks:
+            summary = summarizer(chunk)  # Summarize each chunk
+            summaries.append(summary[0]['summary_text'])  # Append the summary for each chunk
+        # Combine the summaries
+        final_summary = ' '.join(summaries)
+        return final_summary
+    except Exception as e:
+        print(f"Error while generating summary: {e}")
+        return e
+
+
+def get_video_details(url):
+    try:
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for bad status codes
+        soup = BeautifulSoup(response.text, 'html.parser')
+
+        # Extract title
+        title = soup.find('meta', property='og:title')
+        if title:
+            title = title.get('content')
+        else:
+            title = "Title not found"
+
+        # Extract thumbnail URL
+        thumbnail_url = soup.find('meta', property='og:image')
+        if thumbnail_url:
+            thumbnail_url = thumbnail_url.get('content')
+        else:
+            thumbnail_url = "Thumbnail not found"
+
+        return title, thumbnail_url
+    except requests.exceptions.RequestException as e:
+        print(f"Request error: {e}")
+        return "Error retrieving details", None
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        return "Error retrieving details", None
