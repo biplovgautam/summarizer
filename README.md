@@ -8,9 +8,10 @@ Welcome to **DjangoSummarizer**! This project is designed to make lengthy YouTub
 
 ### Current Features
 - **Accurate Transcriptions**: Uses OpenAI's Whisper (base version) for high-quality speech-to-text conversion.
+- **Summarization**: Automatically generate concise summaries from transcriptions.
 
 ### Planned Features
-- **Summarization**: Automatically generate concise summaries from transcriptions.
+- **YT video card**: Automatically generates and update the card having title and video of that youtube url.
 - **Enhanced UI**: A smoother, more intuitive interface for users.
 - **API Integration**: Access transcription and summarization services programmatically.
 
@@ -21,6 +22,7 @@ Welcome to **DjangoSummarizer**! This project is designed to make lengthy YouTub
 - **Django**: A robust web framework for backend logic.
 - **yt-dlp**: Downloads YouTube videos for processing.
 - **Whisper (Base)**: A state-of-the-art model for audio transcription.
+- **BERT**: A transformer-based model used for advanced text summarization.
 
 ---
 

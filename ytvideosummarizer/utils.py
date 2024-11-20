@@ -1,4 +1,3 @@
-from pytube import YouTube
 import whisper
 import yt_dlp
 import os
