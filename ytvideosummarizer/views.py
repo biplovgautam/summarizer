@@ -12,7 +12,6 @@ def ytvideosummarizerhome(request):
             audio_path = download_audio(video_url)
             text = audio_to_text(audio_path)
             # text = "testing is going on for downloading audio"
-            delete_audio(audio_path)
             return render(request, 'ytsummarizer/ytvideosummarizerhome.html', {'form': form, 'text': text})
     else:
         form = VideoURLForm()
