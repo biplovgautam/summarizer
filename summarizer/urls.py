@@ -22,5 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ytvideosummarizer/',include("ytvideosummarizer.urls")),
+    path('textsummarizer/',include("textsummarizer.urls")),
     path("",views.home,name="home")
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
