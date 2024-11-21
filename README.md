@@ -3,11 +3,13 @@
 
 Welcome to **DjangoSummarizer**! This project is designed to make lengthy YouTube videos more digestible by transcribing audio into text and summarizing it. The transcription feature is fully functional, and future improvements will enhance the summarization capabilities.
 
+---
+
 ## Features
 
 ### Current Features
 - **Accurate Transcriptions**: Uses OpenAI's Whisper (base version) for high-quality speech-to-text conversion.
-- **Summarization**: Automatically generate concise summaries from transcriptions.
+- **Summarization**: Automatically generate concise summaries from transcriptions or input text.
 
 ### Planned Features
 - **YouTube Video Card**: Automatically generates a card with the title and video of the provided YouTube URL.
@@ -76,9 +78,14 @@ Follow the steps below to get the app up and running on your local machine:
 
 ## Usage
 
+### For YouTube Transcription and Summarization:
 1. Paste the URL of a YouTube video into the input box.
 2. Click "Submit" to transcribe and summarize the audio.
 3. View the transcription and download the summary if needed.
+
+### For Text Summarization:
+1. Enter the text you want to summarize into the input box.
+2. Click "Submit" to view the concise summary of the entered text.
 
 ---
 
@@ -87,6 +94,8 @@ Follow the steps below to get the app up and running on your local machine:
 ```
 summarizer/
 ├── summarizer/        # Core project folder
+├── ytvideosummarizer/ # youtube video summarizer app
+├── textsummarizer/    # textsummarizer app folder
 ├── templates/         # HTML templates
 ├── static/            # Static files (CSS, JS, images)
 ├── media/             # Temporary storage for audio files
@@ -98,6 +107,7 @@ summarizer/
 
 ## Future Enhancements
 
+- **Customizable Summary Length**: Choose between short, medium, or detailed summaries.
 - **User Profiles**: Save and manage your transcriptions and summaries.
 - **API Service**: Provide transcription and summarization capabilities via API.
 - **Mobile App**: A dedicated app for easier accessibility.
@@ -140,4 +150,4 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 ---
 
-## Let’s make long videos easier to digest, together! 🎉
+## Let’s make long videos and lengthy text easier to digest, together! 🎉
