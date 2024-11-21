@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'ytvideosummarizer',
+    'textsummarizer',
     'django.contrib.staticfiles',
 ]
 
